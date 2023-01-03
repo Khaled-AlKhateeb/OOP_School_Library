@@ -1,10 +1,10 @@
 class Person
-  #getters & setters
+  # getters & setters
   attr_reader :id
   attr_accessor :name, :age
 
-  #constructor
-  def initialize(age, name = "Unknown", parent_permission: true)
+  # constructor
+  def initialize(age, name = 'Unknown', parent_permission: true)
     super()
     @id = Random.rand(1..1000)
     @name = name
@@ -12,15 +12,14 @@ class Person
     @parent_permission = parent_permission
   end
 
-  #private method
-  def is_of_age?
+  # private method
+  def of_age?
     @age >= 18
   end
-  private :is_of_age?
+  private :of_age?
 
-  #public method
+  # public method
   def can_use_services?
-    is_of_age? || @parent_permission
+    of_age? || @parent_permission
   end
-
 end
