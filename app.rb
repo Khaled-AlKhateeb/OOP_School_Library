@@ -23,7 +23,7 @@ class App
     @people = []
   end
 
-   #display commands
+  # display commands
   def display_cmd
     @cmd.each do |index, command|
       puts "#{index} - #{command}"
