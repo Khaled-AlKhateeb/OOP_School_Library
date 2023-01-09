@@ -6,10 +6,10 @@ require_relative 'rental'
 class Person < Nameable
   # getters & setters
   attr_reader :id
-  attr_accessor :name, :age, :rentals
+  attr_accessor :name, :age, :rentals, :parent_permission
 
   # constructor
-  def initialize(age, name = 'Unknown', parent_permission: true)
+  def initialize(age:, name: 'Unknown', parent_permission: true)
     super()
     @id = Random.rand(1..1000)
     @name = name
@@ -22,6 +22,7 @@ class Person < Nameable
   def of_age?
     @age >= 18
   end
+
   private :of_age?
 
   # public method
@@ -35,7 +36,11 @@ class Person < Nameable
   end
 
   # add rental method
-  def add_rental(date, book)
-    Rental.new(date, book, self)
+  def add_rental(person)
+    @rentals.push(person)
+  end
+
+  def to_s
+    "Name: #{@name}, ID: #{@id}, Age: #{@age}"
   end
 end
