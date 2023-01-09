@@ -1,9 +1,10 @@
-require_relative 'person'
-require_relative 'student'
-require_relative 'rental'
-require_relative 'book'
-require_relative 'teacher'
-require_relative 'classroom'
+require_relative './models/person'
+require_relative './models/student'
+require_relative './models/rental'
+require_relative './models/book'
+require_relative './models/teacher'
+require_relative './models/classroom'
+
 class App
   def initialize
     @books = []
