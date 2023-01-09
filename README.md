@@ -105,6 +105,10 @@ For more information on how you can use this app, please follow this [tutorial](
 
 <!-- CONTRIBUTING -->
 
+## 🔭 Future Features <a name="future-features"></a>
+
+- [ ] **[add UI/UX to the project]**
+
 ## 🤝 Contributing <a name="contributing"></a>
 
 Contributions, issues, and feature requests are welcome!
