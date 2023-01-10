@@ -1,13 +1,14 @@
 require 'json'
-require_relative 'person'
-require_relative 'student'
-require_relative 'rental'
-require_relative 'book'
-require_relative 'teacher'
-require_relative 'classroom'
-require_relative 'data'
+require_relative './models/person'
+require_relative './models/student'
+require_relative './models/rental'
+require_relative './models/book'
+require_relative './models/teacher'
+require_relative './models/classroom'
+require_relative './models/data'
+
 class App
-  include Persist
+  include Presist
   def initialize
     @books = load_books
     @people = load_people

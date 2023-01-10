@@ -88,7 +88,7 @@ module Presist
     open('books.json', 'w') { |f| f << JSON.generate(json) }
   end
 
-  def presisit_data
+  def presist_data
     save_people unless @people.empty?
     save_books unless @books.empty?
     save_rental unless @rentals.empty?
