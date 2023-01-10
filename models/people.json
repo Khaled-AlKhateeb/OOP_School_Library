@@ -1,0 +1,4 @@
+[{"instance":"student","id":608,"age":"23","name":"Khlaed","permission":false,"classroom":null},
+{"instance":"teacher","id":112,"age":"46","name":"Gilbert","specialization":"Development"},{"instance":"student",
+"id":778,"age":"23 ","name":"Hasina","permission":true,"classroom":null},{"instance":"teacher","id":562,
+"age":"54","name":"Max","specialization":"History"}]

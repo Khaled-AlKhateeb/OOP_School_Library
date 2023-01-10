@@ -1,9 +1,11 @@
 require_relative 'app'
 require 'json'
+
 class Main
   def initialize
     @app = App.new
   end
+
   def actions
     puts
     puts 'Please choose an option by entering a number:'
@@ -15,6 +17,7 @@ class Main
     puts '6 - List all rentals for a given person id'
     puts '7 - Exit'
   end
+
   def run
     puts 'Welcome to School Library App!'
     loop do
@@ -27,5 +30,6 @@ class Main
     puts 'Thank you for using this app!'
   end
 end
+
 run_application = Main.new
 run_application.run
