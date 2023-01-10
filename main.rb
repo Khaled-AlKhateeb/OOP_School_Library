@@ -24,6 +24,7 @@ class Main
       actions
       option = gets.chomp
       break if option == '7'
+
       @app.handle_action option
     end
     @app.persist_data
