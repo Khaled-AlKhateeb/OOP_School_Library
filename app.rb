@@ -1,15 +1,17 @@
-require_relative './models/person'
-require_relative './models/student'
-require_relative './models/rental'
-require_relative './models/book'
-require_relative './models/teacher'
-require_relative './models/classroom'
-
+require 'json'
+require_relative 'person'
+require_relative 'student'
+require_relative 'rental'
+require_relative 'book'
+require_relative 'teacher'
+require_relative 'classroom'
+require_relative 'data'
 class App
+  include Persist
   def initialize
-    @books = []
-    @rentals = []
-    @people = []
+    @books = load_books
+    @people = load_people
+    @rentals = load_rentals
   end
 
   def handle_action(option)
@@ -73,6 +75,7 @@ class App
     print 'Specialization: '
     specialization = gets.chomp
     teacher = Teacher.new(age: age, name: name, specialization: specialization)
+    puts teacher.specialization
     @people.push(teacher)
     puts 'Person created successfully'
   end
