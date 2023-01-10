@@ -10,12 +10,13 @@ module Presist
     if File.exist?('people.json')
       JSON.parse(File.read('people.json')).map do |people|
         if people['instance'] == 'teacher'
-          teacher = Teacher.new(age: people['age'], id: people['id'], name: people['name'], specialization: people['specialization'])
+          teacher = Teacher.new(age: people['age'], id: people['id'], name: people['name'],
+                                specialization: people['specialization'])
           teacher
         else
           parent_permission = people['permission'] && true
           student = Student.new(age: people['age'], id: people['id'], name: people['name'],
-          parent_permission: parent_permission, classroom: people['classroom'])
+                                parent_permission: parent_permission, classroom: people['classroom'])
           student
         end
       end
@@ -44,7 +45,7 @@ module Presist
   end
 
   def load_rentals
-    file = "rentals.json"
+    file = 'rentals.json'
     if File.exist? file
       JSON.parse(File.read(file)).map do |rental|
         date = rental['date']
@@ -61,10 +62,11 @@ module Presist
     json = []
     @people.each do |people|
       if people.instance_of?(Teacher)
-        json.push({ instance: 'teacher', id: people.id, age: people.age, name: people.name, specialization: people.specialization })
+        json.push({ instance: 'teacher', id: people.id, age: people.age, name: people.name,
+                    specialization: people.specialization })
       else
         json.push({ instance: 'student', id: people.id, age: people.age, name: people.name,
-        permission: people.parent_permission, classroom: people.classroom})
+                    permission: people.parent_permission, classroom: people.classroom })
       end
     end
     open('people.json', 'w') { |f| f.write JSON.generate(json) }
@@ -73,7 +75,7 @@ module Presist
   def save_rental
     json = []
     @rentals.each do |rental|
-      json.push({date: rental.date, person: rental.person.id, book: rental.book.title })
+      json.push({ date: rental.date, person: rental.person.id, book: rental.book.title })
     end
     open('rentals.json', 'w') { |f| f << JSON.generate(json) }
   end
