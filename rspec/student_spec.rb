@@ -1,27 +1,49 @@
-require_relative '../student'
-require_relative '../classroom'
-require_relative '../person'
+require_relative './spec_helper'
 
 describe Student do
-  context 'When providing student information' do
-    classroom = Classroom.new
-    person = Student.new(id: nil, classroom: classroom, age: 22, name: 'sss', parent_permission: true)
-    person_two = Student.new(id: nil, classroom: classroom, age: 16, name: 'sona', parent_permission: false)
+  before :each do
+    @student = Student.new(15, 'Gabriel', 'programming')
+  end
 
-    it 'creates a student person' do
-      expect(person.name).to eq 'sss'
+  describe '#new' do
+    it 'receives 1 parameter (up to 5) and returns a Student object' do
+      expect(@student).to be_an_instance_of Student
     end
+  end
 
-    it 'creates a student without permission' do
-      expect(person_two.can_use_services?).to eq false
+  describe '#age' do
+    it "returns the student's age" do
+      expect(@student.age).to eql 15
     end
+  end
 
-    it 'adds student to classroom' do
-      expect(person.classroom).to eq classroom
+  describe '#name' do
+    it "returns the student's name" do
+      expect(@student.name).to eql 'Gabriel'
     end
+  end
 
-    it 'should print custom message' do
-      expect(person.play_hooky).to eq "¯\(ツ)/¯"
+  describe '#classroom' do
+    it "returns the student's classroom" do
+      expect(@student.classroom).to eql 'programming'
+    end
+  end
+
+  describe '#id' do
+    it "returns the student's id" do
+      expect(@student.id.class).to eql Integer
+    end
+  end
+
+  describe '#parent_permission' do
+    it 'returns if the student has parent permission' do
+      expect(@student.parent_permission).to eql true
+    end
+  end
+
+  describe '#play_hooky' do
+    it 'returns the student playing hooky' do
+      expect(@student.play_hooky).to eql '¯\(ツ)/¯'
     end
   end
 end
