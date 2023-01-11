@@ -1,16 +1,13 @@
 require_relative 'student'
 
 class Classroom
-  # setters & getters
   attr_accessor :label, :students
 
-  # constructor
-  def initialize(label)
+  def intitialize(label)
     @label = label
     @students = []
   end
 
-  # add student method
   def add_student(student)
     @students.push(student) unless @students.include?(student)
     student.classroom = self
