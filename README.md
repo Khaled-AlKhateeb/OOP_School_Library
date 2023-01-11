@@ -88,6 +88,9 @@ Example command:
   ruby main.rb
 ```
 
+### Test
+Add to the terminal `rspec spec spec/filename.rb`
+
 For more information on how you can use this app, please follow this [tutorial](https://www.youtube.com/watch?v=vkkgrhD6aXQ)
 
 <!-- AUTHORS -->
